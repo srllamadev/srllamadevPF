@@ -20,18 +20,18 @@ document.addEventListener('DOMContentLoaded',()=>{
   const y = new Date().getFullYear();
   const el = document.getElementById('year'); if(el) el.textContent = y;
 
-  // 3. Copiar email
+  // 3. Copy email
   const copyBtn = document.getElementById('copyEmail');
   if(copyBtn){
     copyBtn.addEventListener('click', async ()=>{
       const text = copyBtn.textContent.trim();
       try{
         await navigator.clipboard.writeText(text);
-        copyBtn.textContent = '✓ ¡Copiado!';
+        copyBtn.textContent = '✓ Copied!';
         setTimeout(()=> copyBtn.textContent = text,2000);
       }catch(e){
         const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
-        try{document.execCommand('copy'); copyBtn.textContent='✓ ¡Copiado!'; setTimeout(()=>copyBtn.textContent=text,2000)}catch(e){}
+        try{document.execCommand('copy'); copyBtn.textContent='✓ Copied!'; setTimeout(()=>copyBtn.textContent=text,2000)}catch(e){}
         ta.remove();
       }
     });
